@@ -82,7 +82,7 @@ cast.framework.CastReceiverContext.getInstance().start(options);
 for (var i = 0; i < arrayLength; i++) {
     firebase.database().ref('room/fields/' + fields[i]).on('value', (snapshot) => {
   const data = snapshot.val();
-  document.getElementById(fields[i]).innerHTML = data;
+  document.getElementById(snapshot.key).innerHTML = data;
 });
 }
 
