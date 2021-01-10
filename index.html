@@ -29,19 +29,19 @@ cast.framework.CastReceiverContext.getInstance().start(options);
 
         <table style="width:100% ; color:blue">
   <tr>
-    <th id="f00">Jill</th>
-    <th>Smith</th>
-    <th>50</th>
+    <th id="f00"> </th>
+    <th id="f01"> </th>
+    <th id="f02"> </th>
   </tr>
   <tr>
-    <th>Eve</th>
-    <th>Jackson</th>
-    <th>94</th>
+    <th id="f10"> </th>
+    <th id="f11"> </th>
+    <th id="f12"> </th>
   </tr>
   <tr>
-    <th>John</th>
-    <th>Doe</th>
-    <th>80</th>
+    <th id="f20"> </th>
+    <th id="f21"> </th>
+    <th id="f22"> </th>
   </tr>
 </table>
 
@@ -76,13 +76,22 @@ cast.framework.CastReceiverContext.getInstance().start(options);
      var database = firebase.database();
 
 
-
-var starCountRef = firebase.database().ref('room/fields/f22');
-starCountRef.on('value', (snapshot) => {
+      let fields = ['f00', 'f01', 'f02', 'f10', 'f11', 'f12', 'f20', 'f21', 'f22']
+      
+      var arrayLength = fields.length;
+for (var i = 0; i < arrayLength; i++) {
+    firebase.database().ref('room/fields/' + fields[i]).on('value', (snapshot) => {
   const data = snapshot.val();
-
-  document.getElementById("f00").innerHTML = data;
+  document.getElementById(fields[i]).innerHTML = data;
 });
+}
+
+//var starCountRef = firebase.database().ref('room/fields/f22');
+//starCountRef.on('value', (snapshot) => {
+//  const data = snapshot.val();
+
+//  document.getElementById("f00").innerHTML = data;
+//});
 
 
   </script>
