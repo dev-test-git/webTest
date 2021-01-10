@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,6 +7,55 @@
     </head>
     <body>
       <h1> Hello </h1>
+
+
         <p style="color:blue">This is another paragraph.</p>
+
+        <p id="p1" style="color:blue">Hello World! </p>
+        
+
+
+        
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.2/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDq_hNzZiRhHsZGUUUEeYUHry2JBhq8_MM",
+    authDomain: "cast-test2.firebaseapp.com",
+    databaseURL: "https://cast-test2-default-rtdb.firebaseio.com",
+    projectId: "cast-test2",
+    storageBucket: "cast-test2.appspot.com",
+    messagingSenderId: "849496351795",
+    appId: "1:849496351795:web:004338ad57a15c22a4ef46"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+  <script>
+    
+     var database = firebase.database();
+
+
+
+var starCountRef = firebase.database().ref('users/23');
+starCountRef.on('value', (snapshot) => {
+  const data = snapshot.child("email").val();
+
+  document.getElementById("p1").innerHTML = data;
+});
+
+
+  </script>
+        
     </body>
 </html>
