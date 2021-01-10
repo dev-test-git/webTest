@@ -90,7 +90,7 @@ for (var i = 0; i < arrayLength; i++) {
 
 firebase.database().ref('room/winner').on('value', (snapshot) => {
   const data = snapshot.val();
-  document.getElementById("winner").innerHTML = data;
+  document.getElementById("winner").innerHTML = "The winner is: " + data;
     document.getElementById("winner").hidden = false;
 });
 
