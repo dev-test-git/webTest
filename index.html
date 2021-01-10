@@ -77,9 +77,9 @@ cast.framework.CastReceiverContext.getInstance().start(options);
 
 
 
-var starCountRef = firebase.database().ref('users/23');
+var starCountRef = firebase.database().ref('room/fields');
 starCountRef.on('value', (snapshot) => {
-  const data = snapshot.child("email").val();
+  const data = snapshot.key();
 
   document.getElementById("f00").innerHTML = data;
 });
