@@ -77,12 +77,12 @@ cast.framework.CastReceiverContext.getInstance().start(options);
     
      var database = firebase.database();
 
-
-      let fields = ['f00', 'f01', 'f02', 'f10', 'f11', 'f12', 'f20', 'f21', 'f22']
+        let roomId = "YY44";
+      let fields = ['f00', 'f01', 'f02', 'f10', 'f11', 'f12', 'f20', 'f21', 'f22'];
       
       var arrayLength = fields.length;
 for (var i = 0; i < arrayLength; i++) {
-    firebase.database().ref('room/fields/' + fields[i]).on('value', (snapshot) => {
+    firebase.database().ref('rooms/' + roomId + '/fields/' + fields[i]).on('value', (snapshot) => {
   const data = snapshot.val();
   document.getElementById(snapshot.key).innerHTML = data;
 });
